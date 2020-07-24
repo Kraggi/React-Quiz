@@ -5,7 +5,13 @@ const AnswersList = props => {
   return (
     <ul className={classes.AnswersList}>
       {props.answers.map((answer, index) => {
-        return <AnswerItem key={index} answer={answer} />;
+        return (
+          <AnswerItem
+            key={index}
+            answer={answer}
+            onAnswerClick={props.onAnswerClick}
+          />
+        );
       })}
     </ul>
   );
