@@ -3,6 +3,7 @@ import classes from './Auth.module.scss';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import is from 'is_js';
+import Axios from 'axios';
 export default class Auth extends Component {
   state = {
     isFormValid: false,
@@ -34,8 +35,38 @@ export default class Auth extends Component {
     },
   };
 
-  loginHandler = () => {};
-  registerHandler = () => {};
+  loginHandler = async () => {
+    const authData = {
+      email: this.state.formControls.email.value,
+      password: this.state.formControls.password.value,
+      returnSecureToken: true,
+    };
+    try {
+      const res = await Axios.post(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCmgji_6_V2vWZB3hB-6d-1EI1ZQIkcrMk',
+        authData
+      );
+      console.log(res.data);
+    } catch (error) {
+      console.log('Oops', error);
+    }
+  };
+  registerHandler = async () => {
+    const authData = {
+      email: this.state.formControls.email.value,
+      password: this.state.formControls.password.value,
+      returnSecureToken: true,
+    };
+    try {
+      const res = await Axios.post(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCmgji_6_V2vWZB3hB-6d-1EI1ZQIkcrMk',
+        authData
+      );
+      console.log(res.data);
+    } catch (error) {
+      console.log('Oops', error);
+    }
+  };
   submitHandler = e => {
     e.preventDefault();
   };
