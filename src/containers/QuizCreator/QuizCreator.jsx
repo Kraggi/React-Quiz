@@ -8,6 +8,7 @@ import {
 } from '../../form/formFramework';
 import Input from '../../components/UI/Input/Input';
 import Select from '../../components/UI/Select/Select';
+import axios from 'axios';
 
 function createOptionControl(number) {
   return createControl(
@@ -50,13 +51,7 @@ export default class QuizCreator extends Component {
 
     const quiz = this.state.quiz.concat();
     const index = quiz.length + 1;
-    const {
-      question,
-      option1,
-      option2,
-      option3,
-      option4,
-    } = this.state.formControls;
+    const { option1, option2, option3, option4 } = this.state.formControls;
     const questionItem = {
       question: this.state.formControls.question.value,
       id: index,
@@ -77,10 +72,22 @@ export default class QuizCreator extends Component {
       formControls: createFormControls(),
     });
   };
-  createQuizHandler = e => {
+  createQuizHandler = async e => {
     e.preventDefault();
-
-    console.log(this.state.quiz);
+    try {
+      await axios.post(
+        'https://react-quiz-a6362.firebaseio.com/quizes.json',
+        this.state.quiz
+      );
+      this.setState({
+        quiz: [],
+        isFormValid: false,
+        rightAnswerId: 1,
+        formControls: createFormControls(),
+      });
+    } catch (error) {
+      console.log('Oops', error);
+    }
   };
   changeHandler = (value, controlName) => {
     const formControls = { ...this.state.formControls };
