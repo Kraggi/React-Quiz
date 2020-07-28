@@ -41,3 +41,30 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .Drawer {
+    max-width: 300px;
+    & ul {
+      li {
+        a {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Drawer {
+    max-width: 230px;
+    & ul {
+      li {
+        a {
+          font-size: 25px;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

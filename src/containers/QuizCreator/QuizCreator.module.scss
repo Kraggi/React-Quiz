@@ -16,11 +16,18 @@
     text-align: center;
     color: white;
   }
-
   form {
     background: #eee;
     border-radius: 5px;
     padding: 15px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .QuizCreator {
+    button {
+      margin-top: 10px;
+    }
   }
 }

@@ -24,3 +24,11 @@
     color: rgba(161, 240, 69, 0.7);
   }
 }
+
+@media screen and (max-width: 700px) {
+  .FinishedQuiz {
+    button {
+      margin-top: 10px;
+    }
+  }
+}
