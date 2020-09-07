@@ -6,11 +6,11 @@ With the ability to authorize and create your own quizes.
 
 > Demo https://react-quiz-a6362.web.app
 
-# Stack:
+### Stack:
 
 JavaScript | React | Redux | React-thunk | 
 React-router | Axios | Scss
 
-# Screenshot:
+### Screenshot:
 
 ![Quiz](https://sun9-15.userapi.com/2hafjxz2MPS8zd1o01QDzsm5EOPi-GBT1OfYfQ/DbxhigyHsig.jpg)
